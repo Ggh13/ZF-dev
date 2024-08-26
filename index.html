@@ -1,0 +1,512 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ZF school</title>
+    <link rel="stylesheet" href="/static/css/main.css">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <link rel="icon" href="photo/icon.png" type="image/x-icon">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap" rel="stylesheet">
+
+
+
+
+    <style>
+        .main {
+            width: 100%;
+            height: flex;
+            background: #FFEFDF;
+            border-radius: 20px;
+            padding: 2%;
+        }
+
+        .background_b {
+            width: 100%;
+            height: flex;
+            background: #003153;
+            padding: 2%;
+        }
+
+        .center-div {
+            text-align: center;
+        }
+
+        .center-div-vertic {
+            display: flex;
+            align-items: center;
+        }
+
+        .play-regular {
+            font-family: "Play", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
+
+        .play-bold {
+            font-family: "Play", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+
+        .border-for-img {
+            border-radius: 15px;
+        }
+
+        .block-for-info {
+            padding: 20px;
+            width: flex;
+            height: flex;
+            background-color: #ffc388;
+            border-radius: 15px;
+            border-width: 10px;
+            border-style: solid;
+            border-color: #003153;
+            margin-bottom: 50px;
+        }
+    </style>
+
+
+    <style>
+
+
+        .carousel {
+            overflow: hidden;
+            width: 100%;
+            border: 2px solid #fff;
+            background-color: #222;
+        }
+
+        .carousel-track {
+            justify-content: center; /* Центрирует блоки по горизонтали */
+            align-items: center; /* Центрирует блоки по вертикали */
+            display: flex;
+            width: calc(100% * 4); /* 4 - количество картинок */
+            height: 500px;
+            animation: scroll 15s linear infinite;
+        }
+
+        }
+
+        .carousel-track img {
+            width: 100%;
+            max-width: 100%;
+            object-fit: cover;
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(-0%);
+            }
+
+            100% {
+                transform: translateX(-85%);
+            }
+        }
+
+        @keyframes scroll2 {
+            0% {
+                transform: translateX(150%);
+            }
+
+            100% {
+                transform: translateX(-250%);
+            }
+        }
+
+        @media (max-width: 800px) {
+            .carousel-track {
+                justify-content: center; /* Центрирует блоки по горизонтали */
+                align-items: center; /* Центрирует блоки по вертикали */
+                display: flex;
+                width: calc(100% * 4); /* 4 - количество картинок */
+                height: 500px;
+                animation: scroll2 20s linear infinite;
+            }
+        }
+
+        .img_size {
+            height: auto;
+            width: 100%;
+            max-width:500px;
+        }
+
+        .img_size_circle {
+            height: 500px;
+            width: flex;
+            min-width: 450px;
+        }
+
+        .block_for_img {
+            height: 300px;
+            width: flex;
+            display: flex;
+            justify-content: center; /* Центрирует блоки по горизонтали */
+            align-items: center; /* Центрирует блоки по вертикали */
+            /*flex-direction: column;  Если нужно, чтобы блоки располагались друг под другом */
+            background-color: #444;
+        }
+
+        .centered-text {
+            position: absolute;
+            color: white;
+            font-size: 70px;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7); /* Тень для улучшения читаемости */
+            text-align: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5); /* Полупрозрачный фон для текста */
+            border-radius: 10px;
+        }
+
+        .super-flex-conteiner {
+            height: 100%;
+            width: 100%;
+        }
+
+        .vertical {
+            border-left: 5px solid black;
+            height: 200px;
+            position: absolute;
+            left: 50%;
+        }
+
+        .margin-for-info-blocks {
+            margin-bottom: 30px;
+            margin-top: 30px;
+        }
+
+        .button_block {
+            width: flex;
+            height: flex;
+            padding: 20px;
+            background-color: aquamarine;
+            border-radius: 30px;
+            border-style: solid;
+            border-color: aqua;
+            border-width: 10px;
+        }
+            .button_block:hover {
+                transform: scale(1.15) perspective(1px);
+                transition: 1s;
+            }
+    </style>
+
+
+    <script>
+        // Скрипт для цикличного прокручивания карусели
+        const track = document.querySelector('.carousel-track');
+        let clone = track.cloneNode(true);
+        track.parentNode.appendChild(clone);
+
+    </script>
+</head>
+
+<body>
+    <div class="container-fluid" style="background: #003153;  padding-bottom: 2%; padding-top: 2%; ">
+        <div class="row">
+            <div class="col-10 col-md-10 offset-1 offset-md-1">
+                <div class="main">
+                    <div class="row">
+
+                        <div class="col-3 col-md-1  center-div play-bold" style="height: 40px; height: 100px;">
+                            <img src="photo/FZ.png" alt="Cyberpunk 2077" style="width:100px;height:100px;">
+                        </div>
+                        <div class="col-6 col-md-1 center-div play-bold" style="height: 40px; height: 100px; line-height: 100px; text-align: center; font-size:30px;">
+                            ZF dev
+                        </div>
+
+                        <div class="col-12 center-div play-bold" style="font-size: 60px; height: 400px;">
+                            <div class="block-for-info">
+                                Любишь играть? - Научись и созидать!
+                            </div>
+                        </div>
+
+
+
+
+
+
+
+
+
+
+                            <div class="col-12 center-div play-bold margin-for-info-blocks" style="font-size: 30px; ">
+                                <div class="block-for-info">
+
+
+                                    <div class="row">
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px;">
+                                            <img class="img_size border-for-img" src="https://seeklogo.com/images/U/unity-logo-988A22E703-seeklogo.com.png" alt="Cyberpunk 2077">
+                                        </div>
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px; ">
+                                            <div class="super-flex-conteiner center-div center-div-vertic">
+
+                                                На данном курсе ты узнаешь что такое Unity и как с его помощью создают невероятно крутые игры!
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-12 center-div play-bold " style="height: 200px; height: 200px;">
+                                <div class="vertical" style="height: 170px;">
+
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+
+
+                            <div class="col-12 center-div play-bold margin-for-info-blocks" style="font-size: 30px; ">
+                                <div class="block-for-info">
+
+
+                                    <div class="row">
+
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px; ">
+                                            <div class="super-flex-conteiner center-div center-div-vertic">
+
+                                                Игры на Unity пишут на языке C#. Ты научишься програмировать на C# с нуля до уровня когда ты сможешь зарабатывать нас своих творениях!
+
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px;">
+                                            <img class="img_size border-for-img" src="https://seeklogo.com/images/C/c-logo-A44DB3D53C-seeklogo.com.png" alt="Cyberpunk 2077">
+                                        </div>
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-12 center-div play-bold " style="height: 200px; height: 200px;">
+                                <div class="vertical" style="height: 170px;">
+
+                                </div>
+                            </div>
+
+                            <div class="col-4 center-div play-bold " style="height: 200px;">
+                                <div class="super-flex-conteiner center-div center-div-vertic">
+
+                                    <hr width="100%" color="green" size="10px" />
+
+                                </div>
+                            </div>
+                            <div class="col-4 center-div play-bold " style="font-size: 40px; overflow:hidden;">
+
+
+                                Ты научишься делать большинство механики из этих игр!
+
+
+
+
+
+                            </div>
+                            <div class="col-4 center-div play-bold " style="height: 200px;">
+                                <div class="super-flex-conteiner center-div center-div-vertic">
+
+                                    <hr width="100%" color="green" size="10px" />
+
+                                </div>
+                            </div>
+                            <div class="col-12 center-div play-bold " style="font-size: 30px; ">
+
+
+                                Указаны только самые уникальные!
+
+
+
+
+
+                            </div>
+
+
+                            <div class="col-12 center-div play-bold" style="font-size: 60px; margin-bottom: 50px;">
+                                <div class="carousel">
+                                    <div class="carousel-track">
+                                        <div class="block_for_img">
+                                            <img class="img_size_circle" src="https://i.playground.ru/p/lJ4t_fvL_CtlWLRk842NgA.jpeg" alt="Cyberpunk 2077">
+                                            <div class="centered-text">
+                                                RAGE 2
+                                            </div>
+                                        </div>
+                                        <div class="block_for_img">
+                                            <img class="img_size_circle" src="https://cdn.shazoo.ru/w1600x1600/110848_X1vVLNpP9W_11194566_827900823912519_8881520.jpg" alt="Cyberpunk 2077">
+                                            <div class="centered-text">
+                                                WITCHER 3
+                                            </div>
+                                        </div>
+                                        <div class="block_for_img">
+                                            <img class="img_size_circle" src="https://img.zoneofgames.ru/screens/2948/247.jpg" alt="Cyberpunk 2077">
+                                            <div class="centered-text">
+                                                CYBERPUNK
+                                            </div>
+                                        </div>
+                                        <div class="block_for_img">
+                                            <img class="img_size_circle" src="https://megakeys.info/obzori/wp-content/uploads/2017/06/mine-video.jpg" alt="Cyberpunk 2077">
+                                            <div class="centered-text">
+                                                MINECRAFT
+                                            </div>
+                                        </div>
+                                        <div class="block_for_img">
+                                            <img class="img_size_circle" src="https://portagame.ru/katalog/game/ps4-game/ps4-gta5-premium-online-edition_2.jpg" alt="Cyberpunk 2077">
+                                            <div class="centered-text">
+                                                GTA V
+                                            </div>
+                                        </div>
+                                        <div class="block_for_img">
+                                            <img class="img_size_circle" src="https://up-game.pro/wp-content/uploads/2023/05/world-of-warcraft-video-game-legion-wallpaper-2000x1333_39.jpg" alt="Cyberpunk 2077">
+                                            <div class="centered-text">
+                                                WORLD OF WARCRAFT
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold " style="height: 200px; height: 200px;">
+                                <div class="vertical" style="height: 170px;">
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold margin-for-info-blocks" style="font-size: 30px; ">
+                                <div class="block-for-info">
+
+
+                                    <div class="row">
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px;">
+                                            <img class="img_size border-for-img" src="https://yt3.googleusercontent.com/Rm8IONcKU132vKRuqTYhNOC0C0nIcvfNwngGOaA3aI_0027YJjacEYE8JeDkqsF_0ZdeT1JAGg=s900-c-k-c0x00ffffff-no-rj" alt="Cyberpunk 2077">
+                                        </div>
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px; ">
+                                            <div class="super-flex-conteiner center-div center-div-vertic">
+
+                                                Концепция данного курса заключается в том, чтобы научить тебя работать с самым популярным игровым двиком инди - разработчиков, чтобы смог самостоятельно создать игру и выложить ее в Яндекс Игры. Под конец курса я тебе дам все инструменты чтобы уметь создавать и зарабатывать на своих играх.
+
+                                            </div>
+                                        </div>
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="col-12 center-div play-bold " style="height: 200px; height: 200px;">
+                                <div class="vertical" style="height: 170px;">
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold" style="font-size: 30px;">
+                                <div class="block-for-info">
+                                    Занятия проходят в Discord. 2 занятия в неделю по 90 минут( По согласованию в группе можно менять кол - во занятий и их длительность). Группами до 5 (Включительно) человек. Стоимость занятия 1500 рублей.
+                                </div>
+                            </div>
+                            <div class="col-12 center-div play-bold" style="font-size: 30px;">
+                                <div class="block-for-info" style="overflow:hidden;">
+                                    Курс расчитан на 3 месяца. От первых шагов в програмировании до регистрации аккаунта разработчика Яндекс игр.
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold" style="font-size: 40px;">
+                                <div class="block-for-info">
+                                    План курса
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold" style="font-size: 40px;">
+                                <div class="block-for-info">
+                                    <img style="width:100%;" src="photo/UnityJunior.png" alt="План курса">
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold " style="height: 200px; height: 200px;">
+                                <div class="vertical" style="height: 170px;">
+
+                                </div>
+                            </div>
+
+                            <div class="col-12 center-div play-bold" style="font-size: 40px;">
+                                <div class="block-for-info">
+                                    <div class="row">
+
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 30px; ">
+                                            <div class="super-flex-conteiner center-div center-div-vertic">
+
+                                                Начало курса 1 октября. Успей пока остались места. После регистрации я свяжусь с тобой за неделю до старта курса.
+
+                                            </div>
+                                        </div>
+
+
+                                        <div class="col-12 col-md-6 center-div play-bold " style="font-size: 80px; ">
+                                            <a href="https://forms.yandex.ru/u/66b6128ad04688110a62c0bb/" style=" text-decoration: none;">
+                                                <div class="button_block" style="font-size:30px;">
+
+                                                    Регистрация
+
+                                                </div>
+                                            </a>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+
+
+                        </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>
